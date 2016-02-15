@@ -1,0 +1,6 @@
+@select_time = (obj, col, row) ->
+	$(obj).toggleClass("green");
+	$.ajax
+    method: 'post',
+    url: 'assign?col=' + col + '&row=' + row,
+    dataType: 'script'
