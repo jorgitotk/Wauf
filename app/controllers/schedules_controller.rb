@@ -15,9 +15,6 @@ class SchedulesController < ApplicationController
 	end
 
 	def save_calendar
-		p '+++++++++++++++++++++++++++'
-		p 'hola estoy en la funcion del save'
-		p '+++++++++++++++++++++++++++'
 		current_user.update(can_edit: false)
 		redirect_to calendar_schedules_path
 	end
