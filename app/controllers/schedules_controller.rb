@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
 	end
 
 	def assign
-		new_availability = current_user.availabilities.find_or_initialize_by(day: params[:col].to_i, start_time: (params[:row].to_i + 8), end_time:(params[:row].to_i + 9))
+		new_availability = current_teacher.availabilities.find_or_initialize_by(day: params[:col].to_i, start_time: (params[:row].to_i + 8), end_time:(params[:row].to_i + 9))
 		if new_availability.new_record?
 			new_availability.save
 		else
@@ -15,10 +15,7 @@ class SchedulesController < ApplicationController
 	end
 
 	def save_calendar
-		p '+++++++++++++++++++++++++++'
-		p 'hola estoy en la funcion del save'
-		p '+++++++++++++++++++++++++++'
-		current_user.update(can_edit: false)
+		current_teacher.update(can_edit: false)
 		redirect_to calendar_schedules_path
 	end
 

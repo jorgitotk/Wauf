@@ -20,7 +20,7 @@
 				<tr>
 					<td class="centered"><%= "#{i + 8}:00 - #{i + 9}:00" %></td>
 					<% 7.times do |j| %>
-						<td id="col-<%= j %>-row-<%= i %>" onclick="<%= "javascript:select_time(this, #{j}, #{i})" if current_user.can_edit %>" class="<%= 'green' if Availability.is_selected?(j,i) %>"></td>
+						<td id="col-<%= j %>-row-<%= i %>" onclick="<%= "javascript:select_time(this, #{j}, #{i})" if current_teacher.can_edit %>" class="<%= 'green' if Availability.is_selected?(j,i) %>"></td>
 					<% end %>
 				</tr>
 			<% end %>
