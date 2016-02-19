@@ -1,12 +1,102 @@
 <div>
-	<h2>
-		Building my profile
-	</h2>
+	<h1>No pos WAUF</h1>
+	<h3>Bienvenido(a): <%= current_teacher.name %></h3>
 </div>
-<div>
-	
+<div class="col-md-12">
+	<div class="col-md-6">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<b>Datos Básicos</b>
+			</div>
+			<div class="panel-body">
+				<table>
+					<thead></thead>
+					<tbody>
+						<tr>
+							<td><b>NOMBRES:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.first_name %></td>
+						</tr>
+						<tr>
+							<td><b>APELLIDOS:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.last_name %></td>
+						</tr>
+						<tr>
+							<td><b>USERNAME:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.username %></td>
+						</tr>
+						<tr>
+							<td><b>TELÉFONO:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.phone %></td>
+						</tr>
+						<tr>
+							<td><b># HRS PASADAS:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.past_hours %></td>
+						</tr>
+						<tr>
+							<td><b>FACULTAD:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.faculties.first.name %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6"></div>
 </div>
+
+
+
+<div class="col-md-12">
+	<div class="col-md-6">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<b>Registro de Cursos y de Horas</b>
+			</div>
+			<div class="panel-body">
+				<table>
+					<thead></thead>
+					<tbody>
+						<tr>
+							<td><b>NOMBRES:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.first_name %></td>
+						</tr>
+						<tr>
+							<td><b>APELLIDOS:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.last_name %></td>
+						</tr>
+						<tr>
+							<td><b>USERNAME:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.username %></td>
+						</tr>
+						<tr>
+							<td><b>TELÉFONO:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.phone %></td>
+						</tr>
+						<tr>
+							<td><b># HRS PASADAS:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.past_hours %></td>
+						</tr>
+						<tr>
+							<td><b>FACULTAD:</b></td>
+							<td class="basic-left-margin"><%= current_teacher.faculties.first.name %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6"></div>
+</div>
+
+
+
 
 <div>
 	<%= link_to 'Go to Calendar', calendar_schedules_path, class:"btn btn-primary" %>
+</div>
+<br>
+<div>
+	<% if teacher_signed_in? %>
+	  <%= link_to 'Logout', destroy_teacher_session_path, method: :delete, class:"btn btn-danger" %>        
+	<% end %>
 </div>

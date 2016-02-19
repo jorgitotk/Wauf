@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   devise_for :teachers
-  get 'welcome/index'
 
   resources :schedules do
     get :calendar, on: :collection
@@ -9,6 +8,6 @@ Rails.application.routes.draw do
     post :assign, on: :collection
   end
 
-  root 'welcome#index'
+  root 'schedules#index'
 
 end

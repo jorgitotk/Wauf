@@ -4,27 +4,33 @@
 <br>
 <div class="col-md-2"></div>
 <div class="col-md-8">
-	<div class="save-button">
-		<%= link_to 'SAVE', save_calendar_schedules_path, class:"btn btn-primary pull-right", data: { confirm: "Are you sure you want to save the schedule? If you agree, you can not make changes to future." } %>
-	</div>
-	<table class="table table-bordered">
-		<thead></thead>
-	  	<tr>
-	  		<th class="centered">HOURS</th>
-	      <% Availability.days.each_with_index do |(key, value), index| %>
-	    		<th class="centered"><%= key %></th>
-				<% end %>
-	  	</tr>
-		<tbody>
-			<% 14.times do |i| %>
-				<tr>
-					<td class="centered"><%= "#{i + 8}:00 - #{i + 9}:00" %></td>
-					<% 7.times do |j| %>
-						<td id="col-<%= j %>-row-<%= i %>" onclick="<%= "javascript:select_time(this, #{j}, #{i})" if current_teacher.can_edit %>" class="<%= 'green' if Availability.is_selected?(j,i) %>"></td>
+  <%= form_tag assign_schedules_path do %>
+		<div class="save-button">
+			<%= submit_tag 'SAVE', class:"btn btn-primary pull-right", data: { confirm: "Are you sure you want to save the schedule? If you agree, you can not make changes to future." } %>
+			<%= link_to 'BACK', schedules_path, class:"btn btn-danger" %>
+		</div>
+		<table class="table table-bordered">
+			<thead></thead>
+		  	<tr>
+		  		<th class="centered">HOURS</th>
+		      <% Availability.days.each_with_index do |(key, value), index| %>
+		    		<th class="centered"><%= key %></th>
 					<% end %>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+		  	</tr>
+			<tbody>
+				<% 14.times do |i| %>
+					<tr>
+						<td class="centered"><%= "#{i + 8}:00 - #{i + 9}:00" %></td>
+						<% 7.times do |j| %>
+							<td onclick="<%= "javascript:select_time(this, #{j}, #{i})" if current_teacher.can_edit %>" class="<%= 'green' if Availability.is_selected?(current_teacher, j, i) %>">
+	              <%= check_box_tag "days_ids[]", "#{j}", nil, id:"dayc-#{j}-r-#{i}", class:"hide" %>
+	              <%= check_box_tag "hours_ids[]", "#{i}", nil, id:"hourc-#{j}-r-#{i}", class:"hide" %>
+							</td>
+						<% end %>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
 </div>
 <div class="col-md-2"></div>

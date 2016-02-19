@@ -6,6 +6,7 @@ class Teacher < ActiveRecord::Base
 
   has_many :availabilities
   has_many :faculty_teachers
+  has_many :faculties, through: :faculty_teachers
 
   validate :validate_username
   

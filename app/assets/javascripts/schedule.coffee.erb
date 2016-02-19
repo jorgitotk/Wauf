@@ -1,6 +1,12 @@
 @select_time = (obj, col, row) ->
 	$(obj).toggleClass("green");
-	$.ajax
-    method: 'post',
-    url: 'assign?col=' + col + '&row=' + row,
-    dataType: 'script'
+	is_checked_days = $("#dayc-" + col + "-r-" + row).prop("checked");
+	is_checked_hours = $("#hourc-" + col + "-r-" + row).prop("checked");
+	if is_checked_days
+		$("#dayc-" + col + "-r-" + row).prop("checked", false)
+	else
+		$("#dayc-" + col + "-r-" + row).prop("checked", true)
+	if is_checked_hours
+		$("#hourc-" + col + "-r-" + row).prop("checked", false)
+	else
+		$("#hourc-" + col + "-r-" + row).prop("checked", true)
