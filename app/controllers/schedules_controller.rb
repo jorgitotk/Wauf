@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
 	def index
+		@eap = Faculty.where(parent_id: 1)
 	end
 
 	def calendar
@@ -20,6 +21,18 @@ class SchedulesController < ApplicationController
 	    end
     end
     redirect_to calendar_schedules_path
+	end
+
+	def pick_courses
+		p '++++++++++++++++++++++++++++++++++'
+		p 'hola me llamo jorgito'
+		p params[:courses]
+		p params[:mode_type_select]
+		p '++++++++++++++++++++++++++++++++++'
+	end
+
+	def set_courses
+		@courses = Course.where(faculty_id: params[:id])
 	end
 
 	def save_calendar

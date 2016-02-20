@@ -10,3 +10,10 @@
 		$("#hourc-" + col + "-r-" + row).prop("checked", false)
 	else
 		$("#hourc-" + col + "-r-" + row).prop("checked", true)
+
+@set_courses = ->
+  id = $('#faculty-type-select option:selected').val()
+  if id == '' then id = 0
+  $.ajax 'schedules/' + id + '/set_courses',
+    type: 'POST'
+    dataType: 'script'

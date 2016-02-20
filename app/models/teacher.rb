@@ -8,6 +8,8 @@ class Teacher < ActiveRecord::Base
   has_many :faculty_teachers
   has_many :faculties, through: :faculty_teachers
 
+  enum type_schedule: [:part_time, :full_time, :exclusive_dedication]
+
   validate :validate_username
   
   attr_accessor :login
