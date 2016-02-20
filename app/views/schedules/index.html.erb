@@ -55,7 +55,7 @@
 			</div>
 
 			<div class="panel-body">
-  			<%= form_tag pick_courses_schedules_path do %>
+  			<%= form_tag pick_courses_schedules_path, remote: true do %>
 					<div class="col-md-12">
 						<div class="col-md-6">
 							<%= select_tag 'Select EAP', options_from_collection_for_select(@eap, "id", "name", selected: ''), include_blank: '- Select Location -', id:'faculty-type-select', class:"form-control", onchange:"javascript:set_courses()" %>
@@ -81,13 +81,6 @@
 	<div class="col-md-5"></div>
 </div>
 
-
-
-
-<div>
-	<%= link_to 'Go to Calendar', calendar_schedules_path, class:"btn btn-primary" %>
-</div>
-<br>
 <div>
 	<% if teacher_signed_in? %>
 	  <%= link_to 'Logout', destroy_teacher_session_path, method: :delete, class:"btn btn-danger" %>        
