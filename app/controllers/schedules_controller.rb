@@ -24,11 +24,16 @@ class SchedulesController < ApplicationController
 	end
 
 	def pick_courses
-		p '++++++++++++++++++++++++++++++++++'
-		p 'hola me llamo jorgito'
-		p params[:courses]
-		p params[:mode_type_select]
-		p '++++++++++++++++++++++++++++++++++'
+		if params[:courses].blank?
+			@status = "Debe elegir al menos un curso."
+		end
+		if params[:mode_type_select].blank?
+			@status = "Debe elegir al menos una opcion en el área de Modo de Trabajo."
+		end
+		if @status.blank?
+			redirect_to calendar_schedules_path
+		end
+
 	end
 
 	def set_courses
