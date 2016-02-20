@@ -1,13 +1,12 @@
 <div>
-	<h2>Recording my weekly hours</h2>
+	<h2>Registrando mi horario semanal</h2>
 </div>
 <br>
 <div class="col-md-2"></div>
 <div class="col-md-8">
-  <%= form_tag assign_schedules_path do %>
+  <%= form_tag assign_schedules_path, remote: true do %>
 		<div class="save-button">
-			<%= submit_tag 'SAVE', class:"btn btn-primary pull-right", data: { confirm: "Are you sure you want to save the schedule? If you agree, you can not make changes to future." } %>
-			<%= link_to 'BACK', schedules_path, class:"btn btn-danger" %>
+			<%= submit_tag 'SAVE', class:"btn btn-primary pull-right", data: { confirm: "El horario registrado no podrá ser modificado en el futuro. ¿Desea continuar?" } %>
 		</div>
 		<table class="table table-bordered">
 			<thead></thead>
@@ -22,9 +21,9 @@
 					<tr>
 						<td class="centered"><%= "#{i + 8}:00 - #{i + 9}:00" %></td>
 						<% 7.times do |j| %>
-							<td onclick="<%= "javascript:select_time(this, #{j}, #{i})" if current_teacher.can_edit %>" class="<%= 'green' if Availability.is_selected?(current_teacher, j, i) %>">
-	              <%= check_box_tag "days_ids[]", "#{j}", nil, id:"dayc-#{j}-r-#{i}", class:"hide" %>
-	              <%= check_box_tag "hours_ids[]", "#{i}", nil, id:"hourc-#{j}-r-#{i}", class:"hide" %>
+							<td onclick="<%= "javascript:select_time(this, #{i}, #{j})" if current_teacher.can_edit %>" class="<%= 'green' if current_teacher.hour_selected?(j, i) %>">
+	              <%= check_box_tag "hours_ids[]", "#{i}", nil, id:"dayc-#{i}-r-#{j}", class:"hide" %>
+	              <%= check_box_tag "days_ids[]", "#{j}", nil, id:"hourc-#{i}-r-#{j}", class:"hide" %>
 							</td>
 						<% end %>
 					</tr>

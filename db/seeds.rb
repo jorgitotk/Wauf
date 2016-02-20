@@ -23,6 +23,55 @@ Faculty.create(
 	]
 )
 
+Teacher.create(
+	[
+		{
+			first_name: 'Jorge Eduardo',
+			last_name: 'Calvo Gordillo',
+			username: 'jorgitotk',
+			email: 'jorgito@gmail.com',
+			password: 'asdasdasd',
+			password_confirmation: 'asdasdasd',
+			phone: 987654321
+		},
+		{
+			first_name: 'Manuel Alejandro',
+			last_name: 'Cabrera Infante',
+			username: 'manuelito',
+			email: 'manuelito@gmail.com',
+			password: 'asdasdasd',
+			password_confirmation: 'asdasdasd',
+			phone: 987654321
+		},
+		{
+			first_name: 'Alfredo Brayan',
+			last_name: 'Chapoñan Alanya',
+			username: 'pepito',
+			email: 'pepito@gmail.com',
+			password: 'asdasdasd',
+			password_confirmation: 'asdasdasd',
+			phone: 987654321
+		}
+	]
+)
+
+FacultyTeacher.create(
+	[
+		{
+			teacher_id: 1,
+			faculty_id: 1
+		},
+		{
+			teacher_id: 2,
+			faculty_id: 1
+		},
+		{
+			teacher_id: 3,
+			faculty_id: 1
+		}
+	]
+)
+
 Course.create(
 	[
 		{

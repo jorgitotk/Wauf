@@ -1,15 +1,15 @@
-@select_time = (obj, col, row) ->
+@select_time = (obj, row, col) ->
 	$(obj).toggleClass("green");
-	is_checked_days = $("#dayc-" + col + "-r-" + row).prop("checked");
-	is_checked_hours = $("#hourc-" + col + "-r-" + row).prop("checked");
+	is_checked_days = $("#dayc-" + row + "-r-" + col).prop("checked");
+	is_checked_hours = $("#hourc-" + row + "-r-" + col).prop("checked");
 	if is_checked_days
-		$("#dayc-" + col + "-r-" + row).prop("checked", false)
+		$("#dayc-" + row + "-r-" + col).prop("checked", false)
 	else
-		$("#dayc-" + col + "-r-" + row).prop("checked", true)
+		$("#dayc-" + row + "-r-" + col).prop("checked", true)
 	if is_checked_hours
-		$("#hourc-" + col + "-r-" + row).prop("checked", false)
+		$("#hourc-" + row + "-r-" + col).prop("checked", false)
 	else
-		$("#hourc-" + col + "-r-" + row).prop("checked", true)
+		$("#hourc-" + row + "-r-" + col).prop("checked", true)
 
 @set_courses = ->
   id = $('#faculty-type-select option:selected').val()

@@ -1,5 +1,6 @@
 <% if @status.blank? %>
-  alert("esto esta boni boni");
+  alert("Datos registrados con éxito!");
+  $(window).attr("location","<%= calendar_schedules_path %>");
 <% else %>
   alert("<%= @status.html_safe %>");
 <% end %>
