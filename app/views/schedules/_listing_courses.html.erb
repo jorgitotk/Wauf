@@ -1,0 +1,10 @@
+<% if courses.blank? %>
+  Ningún curso se ha seleccionado
+<% else %>
+  <% courses.each do |c| %>
+    <label class="course-select">
+      <%= check_box_tag 'courses[]', c.id, false, id:"course_#{c.id}" %>
+      <%= c.name %>
+    </label>
+  <% end %>
+<% end %>
