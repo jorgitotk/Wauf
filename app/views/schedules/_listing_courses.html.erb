@@ -3,7 +3,7 @@
 <% else %>
   <% courses.each do |c| %>
     <label class="course-select">
-      <%= check_box_tag 'courses[]', c.id, false, id:"course_#{c.id}" %>
+      <%= check_box_tag 'courses[]', c.id, false, id:"course_#{c.id}", disabled: !current_teacher.can_register? %>
       <%= c.name %>
     </label>
   <% end %>

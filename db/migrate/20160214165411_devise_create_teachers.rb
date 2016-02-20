@@ -33,7 +33,6 @@ class DeviseCreateTeachers < ActiveRecord::Migration
       t.string  :first_name,  null: false
       t.string  :last_name,   null: false
       t.string  :phone
-      t.string  :address
       t.boolean :can_edit,    null: false, default: true
       t.string  :past_hours
       t.string  :current_hours
