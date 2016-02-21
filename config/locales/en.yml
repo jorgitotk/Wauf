@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  part_time: "Tiempo Parcial"
+  full_time: "Tiempo Completo"
+  exclusive_dedication: "Dedicación Exclusiva"

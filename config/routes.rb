@@ -2,13 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :teachers
 
-  resources :schedules do
+  resources :schedules, only: :index do
     get :calendar, on: :collection
     post :assign, on: :collection
     post :pick_courses, on: :collection
     post :set_courses, on: :member
+    get :view, on: :collection
   end
 
-  root 'schedules#index'
+  root 'routes#root'
 
 end
