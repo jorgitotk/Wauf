@@ -10,7 +10,7 @@ class SchedulesController < ApplicationController
 		if current_teacher.can_edit?
 	    unless (params[:days_ids].blank? and params[:hours_ids].blank?)
 				size = params[:hours_ids].size
-				if size >= current_teacher.past_hours.to_i
+				if size > current_teacher.past_hours.to_i and size <= Teacher.type_hours[current_teacher.type_hours]
 					current_teacher.update(current_hours: size)
 					size.times do |i|
 						if current_teacher.can_edit?
@@ -23,7 +23,7 @@ class SchedulesController < ApplicationController
 			      end
 			    end
 				else
-		  		@status = "Debe escojer una cantidad de horas mayor o igual a " + current_teacher.past_hours + "."
+		  		@status = "Debe escojer una cantidad de horas mayor a " + current_teacher.past_hours + " y menor o igual a " + current_teacher.type_hours + "."
 				end
 		  else
 		  	@status = "Debe registrar un horario para continuar."

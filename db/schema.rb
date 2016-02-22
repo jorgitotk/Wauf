@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222185948) do
+ActiveRecord::Schema.define(version: 20160222204743) do
 
   create_table "teachers", force: :cascade do |t|
     t.string   "email",                  default: "",   null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160222185948) do
     t.string   "username",                              null: false
     t.integer  "type_schedule"
     t.boolean  "can_register",           default: true, null: false
+    t.integer  "type_hours"
     t.index ["email"], :name => "index_teachers_on_email", :unique => true
     t.index ["reset_password_token"], :name => "index_teachers_on_reset_password_token", :unique => true
     t.index ["username"], :name => "index_teachers_on_username", :unique => true
