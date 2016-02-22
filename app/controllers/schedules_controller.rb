@@ -35,6 +35,7 @@ class SchedulesController < ApplicationController
 	end
 
 	def pick_courses
+		@can_edit = current_teacher.can_edit
 		if current_teacher.can_register?
 			if params[:courses].blank?
 				@status = "Debe elegir al menos un curso."

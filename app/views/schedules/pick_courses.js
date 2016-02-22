@@ -4,6 +4,10 @@
 <% else %>
   alert("<%= @status.html_safe %>");
   <% if @status == "Ya no tiene permisos para editar." %>
-		$(window).attr("location","<%= calendar_schedules_path %>");
+    <% if !@can_edit %>
+      $(window).attr("location","<%= view_schedules_path %>");
+    <% else %>
+		  $(window).attr("location","<%= calendar_schedules_path %>");
+    <% end %>
 	<% end %>
 <% end %>
