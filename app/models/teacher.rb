@@ -42,8 +42,15 @@ class Teacher < ActiveRecord::Base
   end
 
   def update_properties
-    self.update(past_hours: rand(8..20))
     self.update(type_hours: Teacher.type_hours.keys.sample)
+    case Teacher.type_hours[self.type_hours]
+    when 8
+      self.update(past_hours: 8)
+    when 20
+      self.update(past_hours: rand(14..20))
+    when 40 
+      self.update(past_hours: rand(14..20))
+    end
     self.update(type_schedule: rand(0..3))
     FacultyTeacher.create(faculty_id: 1, teacher_id: self.id)
   end
