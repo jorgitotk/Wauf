@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220175828) do
+ActiveRecord::Schema.define(version: 20160222185948) do
 
   create_table "teachers", force: :cascade do |t|
     t.string   "email",                  default: "",   null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160220175828) do
     t.string   "current_hours"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.string   "username"
+    t.string   "username",                              null: false
     t.integer  "type_schedule"
     t.boolean  "can_register",           default: true, null: false
     t.index ["email"], :name => "index_teachers_on_email", :unique => true
@@ -55,23 +55,13 @@ ActiveRecord::Schema.define(version: 20160220175828) do
     t.foreign_key ["teacher_id"], "teachers", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_availabilities_teacher_id"
   end
 
-  create_table "faculties", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["parent_id"], :name => "fk__faculties_parent_id"
-    t.foreign_key ["parent_id"], "faculties", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_faculties_parent_id"
-  end
-
   create_table "courses", force: :cascade do |t|
-    t.string   "code"
-    t.string   "name"
+    t.string   "code",       null: false
+    t.string   "name",       null: false
     t.integer  "faculty_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["faculty_id"], :name => "fk__courses_faculty_id"
-    t.foreign_key ["faculty_id"], "faculties", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_courses_faculty_id"
   end
 
   create_table "course_teachers", force: :cascade do |t|
@@ -83,6 +73,14 @@ ActiveRecord::Schema.define(version: 20160220175828) do
     t.index ["teacher_id"], :name => "fk__course_teachers_teacher_id"
     t.foreign_key ["course_id"], "courses", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_course_teachers_course_id"
     t.foreign_key ["teacher_id"], "teachers", ["id"], :on_update => :no_action, :on_delete => :no_action, :name => "fk_course_teachers_teacher_id"
+  end
+
+  create_table "faculties", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], :name => "fk__faculties_parent_id"
   end
 
   create_table "faculty_teachers", force: :cascade do |t|

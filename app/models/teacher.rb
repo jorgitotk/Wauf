@@ -15,6 +15,7 @@ class Teacher < ActiveRecord::Base
   enum type_schedule: [:part_time, :full_time, :exclusive_dedication]
 
   validate :validate_username
+  validates :username, presence: true
   
   attr_accessor :login
 
@@ -40,7 +41,8 @@ class Teacher < ActiveRecord::Base
   end
 
   def update_properties
-    self.update(past_hours: 20)
+    self.update(past_hours: rand(10..20))
+    self.update(type_schedule: rand(0..2))
     FacultyTeacher.create(faculty_id: 1, teacher_id: self.id)
   end
 

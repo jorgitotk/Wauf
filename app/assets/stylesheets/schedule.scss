@@ -10,8 +10,8 @@
 	float: right;
 }
 
-.save-button{
-	margin-bottom: 45px;
+#button-save-calendar{
+	margin-bottom: 10px;
 }
 
 .basic-left-margin{
@@ -20,4 +20,16 @@
 
 .info-margin{
   padding-top: 10px;
+}
+
+.past-hours{
+	color: red;
+}
+
+.current-hours{
+	color: green;
+}
+
+.margin-td-view{
+	padding-bottom: 5px;
 }

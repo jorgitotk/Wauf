@@ -21,7 +21,7 @@
 							<td class="basic-left-margin"><%= current_teacher.last_name %></td>
 						</tr>
 						<tr>
-							<td><b>USERNAME:</b></td>
+							<td><b>CÓDIGO:</b></td>
 							<td class="basic-left-margin"><%= current_teacher.username %></td>
 						</tr>
 						<tr>
@@ -30,7 +30,11 @@
 						</tr>
 						<tr>
 							<td><b># HRS PASADAS:</b></td>
-							<td class="basic-left-margin"><%= current_teacher.past_hours %></td>
+							<td class="basic-left-margin past-hours"><b><%= current_teacher.past_hours %></b></td>
+						</tr>
+						<tr>
+							<td><b>TIPO DE HORARIO:</b></td>
+							<td class="basic-left-margin"><%= t (current_teacher.type_schedule) %></td>
 						</tr>
 						<tr>
 							<td><b>FACULTAD:</b></td>
@@ -53,24 +57,18 @@
   			<%= form_tag pick_courses_schedules_path, remote: true do %>
 					<div class="col-md-12">
 						<div class="col-md-6">
-							<%= select_tag 'Select EAP', options_from_collection_for_select(@eap, "id", "name", selected: ''), include_blank: '- Selección de Facultad -', disabled: !current_teacher.can_register? ,id:'faculty-type-select', class:"form-control", onchange:"javascript:set_courses()" %>
+							<%= select_tag 'Select EAP', options_from_collection_for_select(@eap, "id", "name", selected: ''), include_blank: '- Selección de Facultad -', disabled: !current_teacher.can_register?, id:'faculty-type-select', class:"form-control", onchange:"javascript:set_courses()" %>
 						</div>
 						<div id="list-courses" class="col-md-6">
 							<%= render 'listing_courses', courses: @courses %>
 						</div>
 					</div>
 					<div class="col-md-12 info-margin">
-  					<%= submit_tag 'Save', class:"btn btn-primary pull-right", data: { confirm: "Los datos registrados no podrán ser modificados en el futuro. ¿Desea continuar?" } %>
+  					<%= submit_tag 'Save', class:"btn btn-primary pull-right", data: { confirm: "Los datos registrados no podrán ser modificados en el futuro. ¿Desea continuar?", disable_with: "Guardando ..." } %>
 					</div>
   			<% end %>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-5"></div>
-</div>
-
-<div>
-	<% if teacher_signed_in? %>
-	  <%= link_to 'Logout', destroy_teacher_session_path, method: :delete, class:"btn btn-danger" %>        
-	<% end %>
 </div>

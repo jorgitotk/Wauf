@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>.:: Wauf ::.</title>
+	  <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'devise', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body class="asd">
+		<div class="container">
+			<div id="errors-login" class="col-md-12">
+				<%= render 'layouts/messages' %>
+			</div>
+			<%= yield %>
+		</div>
+	</body>
+</html>
