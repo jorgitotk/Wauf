@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20160222204743) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "username",                              null: false
-    t.integer  "type_schedule"
+    t.integer  "category"
     t.boolean  "can_register",           default: true, null: false
-    t.integer  "type_hours"
+    t.integer  "class_hours"
     t.index ["email"], :name => "index_teachers_on_email", :unique => true
     t.index ["reset_password_token"], :name => "index_teachers_on_reset_password_token", :unique => true
     t.index ["username"], :name => "index_teachers_on_username", :unique => true

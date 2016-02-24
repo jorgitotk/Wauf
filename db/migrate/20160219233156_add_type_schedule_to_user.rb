@@ -1,5 +1,5 @@
 class AddTypeScheduleToUser < ActiveRecord::Migration
   def change
-    add_column :teachers, :type_schedule, :integer
+    add_column :teachers, :category, :integer
   end
 end

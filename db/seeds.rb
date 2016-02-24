@@ -28,7 +28,7 @@ Teacher.create(
 		{
 			first_name: 'Jorge Eduardo',
 			last_name: 'Calvo Gordillo',
-			username: 'jorgitotk',
+			username: 'prof_univ_001',
 			email: 'jorgito@gmail.com',
 			password: 'asdasdasd',
 			password_confirmation: 'asdasdasd',
@@ -37,7 +37,7 @@ Teacher.create(
 		{
 			first_name: 'Manuel Alejandro',
 			last_name: 'Cabrera Infante',
-			username: 'manuelito',
+			username: 'prof_univ_002',
 			email: 'manuelito@gmail.com',
 			password: 'asdasdasd',
 			password_confirmation: 'asdasdasd',
@@ -46,7 +46,7 @@ Teacher.create(
 		{
 			first_name: 'Alfredo Brayan',
 			last_name: 'Chapoñan Alanya',
-			username: 'pepito',
+			username: 'prof_univ_003',
 			email: 'pepito@gmail.com',
 			password: 'asdasdasd',
 			password_confirmation: 'asdasdasd',
