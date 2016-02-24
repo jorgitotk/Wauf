@@ -1,5 +1,5 @@
 class AddTypeHoursToTeachers < ActiveRecord::Migration
   def change
-    add_column :teachers, :type_hours, :integer
+    add_column :teachers, :class_hours, :integer
   end
 end
