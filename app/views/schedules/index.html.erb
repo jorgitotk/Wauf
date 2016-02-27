@@ -37,6 +37,10 @@
 							<td class="basic-left-margin"><%= t (current_teacher.category) %></td>
 						</tr>
 						<tr>
+							<td><b>CLASE:</b></td>
+							<td class="basic-left-margin"><b><%= Teacher.class_hours[current_teacher.class_hours] %> horas</b></td>
+						</tr>
+						<tr>
 							<td><b>FACULTAD:</b></td>
 							<td class="basic-left-margin"><%= current_teacher.faculties.first.name %></td>
 						</tr>

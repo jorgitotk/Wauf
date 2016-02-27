@@ -7,9 +7,10 @@
 	  <%= form_tag assign_schedules_path, remote: true do %>
 			<%= submit_tag 'SAVE', id:"button-save-calendar", class:"btn btn-primary pull-right", data: { confirm: "El horario registrado no podrá ser modificado en el futuro. ¿Desea continuar?", disable_with: "Guardando ..." } %>
 			<% if Teacher.class_hours[current_teacher.class_hours] == 8 %>
-				<b>Cantidad de horas a igualar: <%= current_teacher.past_hours %></b>
+				<b>Cantidad de horas a registrar: <%= current_teacher.past_hours %></b>
 			<% else %>
-				<b>Cantidad de horas a superar: <%= current_teacher.past_hours %></b>
+				<span>Cantidad de horas a superar: <b><%= current_teacher.past_hours %></b></span><br>
+				<span>Cantidad de horas máximas a registrar: <b><%= Teacher.class_hours[current_teacher.class_hours] %></b></span>
 			<% end %>
 			<table class="table table-bordered">
 				<thead></thead>
