@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_out_path_for(resource)
+    new_teacher_session_path
+  end
+
   protected
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :first_name, :last_name, :email, :password, :password_confirmation, :current_password, :phone) }

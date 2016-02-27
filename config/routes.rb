@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :teachers
+  devise_for :teachers, controllers: { sessions: "sessions" }
 
   resources :schedules, only: :index do
     get :calendar, on: :collection
