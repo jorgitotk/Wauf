@@ -1,10 +1,21 @@
 <% if courses.blank? %>
   Ningún curso se ha seleccionado
 <% else %>
-  <% courses.each do |c| %>
-    <label class="course-select">
-      <%= check_box_tag 'courses[]', c.id, false, id:"course_#{c.id}", disabled: !current_teacher.can_register? %>
-      <%= c.name %>
-    </label>
-  <% end %>
+	<table>
+		<thead></thead>
+		<tbody>
+		  <% courses.each do |c| %>
+			  	<tr>
+			  		<td>
+		      		<%= check_box_tag 'courses[]', c.id, false, id:"course_#{c.id}", disabled: !current_teacher.can_register? %>
+			  		</td>
+			  		<td class="padding-td">
+		    			<label for="course_<%= c.id %>">
+			      		<%= c.name %>
+		    			</label>
+			  		</td>
+			  	</tr>
+		  <% end %>
+		</tbody>
+	</table>
 <% end %>

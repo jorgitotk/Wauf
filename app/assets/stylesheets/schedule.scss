@@ -18,6 +18,15 @@
 	padding-left: 42px;
 }
 
+.details{
+	tr:first-child{
+		border-top: 2px solid white;
+	}
+	tr:last-child{
+		border-bottom: 2px solid white;
+	}
+}
+
 .info-margin{
   padding-top: 10px;
 }
@@ -32,4 +41,8 @@
 
 .margin-td-view{
 	padding-bottom: 5px;
+}
+
+.padding-td{
+	padding-left: 10px;
 }
