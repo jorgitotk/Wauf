@@ -2,10 +2,16 @@
 	<h2>Registrando mi horario semanal</h2>
 </div>
 <div class="col-md-12">
+	<div>
+		<% if teacher_signed_in? %>
+		  <%= link_to 'Cerrar sesión', destroy_teacher_session_path, method: :delete, class:"btn btn-danger pull-right
+		  " %>
+		<% end %>
+	</div>
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
 	  <%= form_tag assign_schedules_path, remote: true do %>
-			<%= submit_tag 'SAVE', id:"button-save-calendar", class:"btn btn-primary pull-right", data: { confirm: "El horario registrado no podrá ser modificado en el futuro. ¿Desea continuar?", disable_with: "Guardando ..." } %>
+			<%= submit_tag 'Guardar', id:"button-save-calendar", class:"btn btn-primary pull-right", data: { confirm: "El horario registrado no podrá ser modificado en el futuro. ¿Desea continuar?", disable_with: "Guardando ..." } %>
 			<% if Teacher.class_hours[current_teacher.class_hours] == 8 %>
 				<b>Cantidad de horas a registrar: <%= current_teacher.past_hours %></b>
 			<% else %>
@@ -15,7 +21,7 @@
 			<table class="table table-bordered">
 				<thead></thead>
 			  	<tr>
-			  		<th class="centered">HOURS</th>
+			  		<th class="centered">HORAS</th>
 			      <% Availability.days.each_with_index do |(key, value), index| %>
 			    		<th class="centered"><%= key %></th>
 						<% end %>

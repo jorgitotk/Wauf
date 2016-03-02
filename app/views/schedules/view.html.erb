@@ -1,8 +1,8 @@
 <h1><%= current_teacher.name %> <small>- Datos Generales</small></h1>
 <div>
 	<% if teacher_signed_in? %>
-	  <%= link_to 'Logout', destroy_teacher_session_path, method: :delete, class:"btn btn-danger pull-right
-	  " %>        
+	  <%= link_to 'Cerrar sesión', destroy_teacher_session_path, method: :delete, class:"btn btn-danger pull-right
+	  " %>
 	<% end %>
 </div>
 <div class="col-md-7">
@@ -11,48 +11,48 @@
 			<b>Datos Básicos</b>
 		</div>
 		<div class="panel-body">
-			<table>
+			<table class="table details" width="100%">
 				<thead></thead>
 				<tbody>
 					<tr>
-						<td class="margin-td-view"><b>NOMBRES:</b></td>
-						<td class="basic-left-margin"><%= current_teacher.first_name %></td>
+						<td><b>NOMBRES:</b></td>
+						<td><%= current_teacher.first_name %></td>
 					</tr>
 					<tr>
-						<td class="margin-td-view"><b>APELLIDOS:</b></td>
-						<td class="basic-left-margin"><%= current_teacher.last_name %></td>
+						<td><b>APELLIDOS:</b></td>
+						<td><%= current_teacher.last_name %></td>
 					</tr>
 					<tr>
-						<td class="margin-td-view"><b>CÓDIGO:</b></td>
-						<td class="basic-left-margin"><%= current_teacher.username %></td>
+						<td><b>CÓDIGO:</b></td>
+						<td><%= current_teacher.username %></td>
 					</tr>
 					<tr>
-						<td class="margin-td-view"><b>TELÉFONO:</b></td>
-						<td class="basic-left-margin"><%= current_teacher.phone %></td>
+						<td><b>TELÉFONO:</b></td>
+						<td><%= current_teacher.phone %></td>
 					</tr>
 					<tr>
-						<td class="margin-td-view"><b># HRS PASADAS:</b></td>
+						<td><b># HRS PASADAS:</b></td>
 						<td class="basic-left-margin past-hours"><b><%= current_teacher.past_hours %></b></td>
 					</tr>
 					<tr>
-						<td class="margin-td-view"><b># HRS ACTUALES:</b></td>
+						<td><b># HRS ACTUALES:</b></td>
 						<td class="basic-left-margin current-hours"><b><%= current_teacher.current_hours %></b></td>
 					</tr>
 					<tr>
-						<td class="margin-td-view"><b>CATEGORÍA:</b></td>
-						<td class="basic-left-margin"><%= t (current_teacher.category) %></td>
+						<td><b>CATEGORÍA:</b></td>
+						<td><%= t (current_teacher.category) %></td>
 					</tr>
 					<tr>
 						<td><b>CLASE:</b></td>
-						<td class="basic-left-margin"><b><%= Teacher.class_hours[current_teacher.class_hours] %> horas</b></td>
+						<td><b><%= Teacher.class_hours[current_teacher.class_hours] %> horas</b></td>
 					</tr>
 					<tr>
-						<td class="margin-td-view"><b>FACULTAD:</b></td>
-						<td class="basic-left-margin"><%= current_teacher.faculties.first.name %></td>
+						<td><b>FACULTAD:</b></td>
+						<td><%= current_teacher.faculties.first.name %></td>
 					</tr>
 					<tr>
-						<td class="margin-td-view"><b>CURSOS REGISTRADOS:</b></td>
-						<td class="basic-left-margin">
+						<td><b>CURSOS REGISTRADOS:</b></td>
+						<td>
 							<% current_teacher.courses.each do |course| %>
 								<%= course.name %><br>
 							<% end %>

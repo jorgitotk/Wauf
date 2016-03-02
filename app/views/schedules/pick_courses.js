@@ -3,7 +3,7 @@
   $(window).attr("location","<%= calendar_schedules_path %>");
 <% else %>
   alert("<%= @status.html_safe %>");
-  <% if @status == "Ya no tiene permisos para editar." %>
+  <% if @status == "Ya no tiene permisos para editar, los cursos ya fueron registrados con éxito." %>
     <% if !@can_edit %>
       $(window).attr("location","<%= view_schedules_path %>");
     <% else %>
