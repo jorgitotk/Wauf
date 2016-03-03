@@ -1,5 +1,5 @@
 <% if @status.blank? %>
-  alert("Horario registrados con éxito!");
+  alert("Horario registrado con éxito!");
   $(window).attr("location","<%= view_schedules_path %>");
 <% else %>
   alert("<%= @status.html_safe %>");
